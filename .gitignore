@@ -10,6 +10,7 @@
 # Java class files
 *.class
 
+app/google-services.json
 # Generated files
 bin/
 gen/
@@ -56,6 +57,7 @@ captures/
 .idea/runConfigurations.xml
 .idea/modules/
 .idea/AndroidProjectSystem.xml
+.idea/
 
 # Keystore files (sensitive)
 *.jks
