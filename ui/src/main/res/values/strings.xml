@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MoneySwift</string>
+
+    <!-- Product Card -->
+    <string name="price_format">$%.2f</string>
+    <string name="add_to_cart">Add to cart</string>
+    <string name="in_cart">In cart</string>
+    <string name="rating_format">%.1f</string>
+    <string name="rating_count_format">(%d)</string>
+
+    <!-- Product Details -->
+    <string name="product_details">Product Details</string>
+    <string name="product_id_format">ID: #%d</string>
+    <string name="back">Back</string>
+    <string name="description">Description</string>
+    <string name="product_sku">Product SKU</string>
+    <string name="product_sku_format">M-SWIFT-%d</string>
+    <string name="reviews_format">(%d reviews)</string>
+    <string name="add_to_cart_price_format">Add to Cart • $%.2f</string>
+    <string name="increase_quantity">Increase quantity</string>
+    <string name="decrease_quantity">Decrease quantity</string>
+
+    <!-- Navigation -->
+    <string name="home">Home</string>
+    <string name="cart">Cart</string>
+    <string name="profile">Profile</string>
+    <string name="cart_status">Cart status</string>
+
+    <!-- General -->
+    <string name="loading">Loading…</string>
+    <string name="error">Error</string>
+    <string name="retry">Retry</string>
+    <string name="empty_cart">Your cart is empty</string>
+</resources>

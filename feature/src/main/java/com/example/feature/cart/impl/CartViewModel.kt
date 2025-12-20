@@ -1,0 +1,45 @@
+package com.example.feature.cart.impl
+
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.example.core.data.repository.CartRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.launch
+import javax.inject.Inject
+
+@HiltViewModel
+class CartViewModel @Inject constructor(
+    private val cartRepository: CartRepository
+) : ViewModel() {
+
+    val cartItems = cartRepository.getCartItems()
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000L), emptyList())
+
+    val subtotal = cartItems.map { items ->
+        items.sumOf { it.totalPrice }
+    }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000L), 0.0)
+
+    val shipping = subtotal.map { amount ->
+        if (amount > 0) 10.0 else 0.0
+    }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000L), 0.0)
+
+    val tax = subtotal.map { amount ->
+        amount * 0.08
+    }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000L), 0.0)
+
+    val totalAmount = cartItems.map { items ->
+        val sub = items.sumOf { it.totalPrice }
+        val ship = if (sub > 0) 10.0 else 0.0
+        val taxAmount = sub * 0.08
+        sub + ship + taxAmount
+    }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000L), 0.0)
+
+    fun removeItem(productId: Int) {
+        viewModelScope.launch {
+            cartRepository.removeFromCart(productId)
+        }
+    }
+}

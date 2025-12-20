@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.MoneySwift" parent="android:Theme.Material.Light.NoActionBar">
+        <!-- You can add colors, fonts, etc. here -->
+    </style>
+
+
+    <style name="Theme.MoneySwift.Splash" parent="Theme.SplashScreen">
+
+        <item name="windowSplashScreenBackground">@color/white</item>
+
+        <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher</item>
+
+        <item name="postSplashScreenTheme">@style/Theme.MoneySwift</item>
+    </style>
+
+</resources>

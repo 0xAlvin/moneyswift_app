@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="onboarding_page1_title">Discover Products</string>
+    <string name="onboarding_page2_title">Smart Deals</string>
+    <string name="onboarding_page3_title">Easy Checkout</string>
+    <string name="onboarding_page1_description">Explore thousands of products and find exactly what you love, all in one place.</string>
+    <string name="onboarding_page2_description">Compare prices across all nearby stations and save money on every fill-up</string>
+    <string name="onboarding_page3_description">Shop faster with secure payments and quick order tracking.</string>
+    <string name="onboarding_page1_cta">Get Started</string>
+    <string name="onboarding_page2_cta">Continue</string>
+    <string name="onboarding_page3_cta">Start shopping</string>
+    <string name="welcome_text_loginScreen">Welcome back</string>
+    <string name="loginscreen_subtext">Log in to your account</string>
+    <string name="email_label">Email</string>
+    <string name="email_placeholder">jane@gmail.com</string>
+    <string name="password_label">Password</string>
+    <string name="password_placeholder">••••••••</string>
+    <string name="hide_password_description">Hide password</string>
+    <string name="show_password_description">Show password</string>
+    <string name="login_screen_button_text">Log in</string>
+    <string name="don_t_have_an_account_text">"Don't have an account? "</string>
+    <string name="sign_up_link">Sign up</string>
+    <string name="signup_title">Create Your Account</string>
+    <string name="signup_subtext">Join us to discover great products, exclusive deals, and a smoother shopping experience.</string>
+    <string name="signup_email_label">Your Email Address</string>
+    <string name="signup_password_label">Choose a Password</string>
+    <string name="signup_password_palceholder">min 6 characters</string>
+    <string name="sign_up_button_text">Sign up</string>
+    <string name="signup_already_have_an_account_text">"Already have an account? "</string>
+    <string name="log_in_link">Log in</string>
+    <string name="subtotal_text_cart">Subtotal</string>
+    <string name="shipping_text_cart">Shipping</string>
+    <string name="tax_8_text_cart">Tax (8%)</string>
+    <string name="price_format">$%.2f</string>
+</resources>

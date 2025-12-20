@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="xml_primary">#7273FF</color>
+    <color name="xml_on_primary">#FFFFFF</color>
+    <color name="xml_surface">#1A1924</color>
+    <color name="xml_on_surface">#FFFFFF</color>
+    <color name="xml_on_surface_variant">#99FFFFFF</color>
+    <color name="xml_outline">#33FFFFFF</color>
+    <color name="xml_background">#121118</color>
+    <color name="xml_error">#FF6B6B</color>
+</resources>
