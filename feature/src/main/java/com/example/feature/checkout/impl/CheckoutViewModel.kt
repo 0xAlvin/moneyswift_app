@@ -1,21 +1,24 @@
 package com.example.feature.checkout.impl
 
-import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.core.domain.repository.CartRepositoryInterface
 import com.example.core.domain.repository.PaymentRepositoryInterface
-import com.example.core.domain.repository.PaymentConfig
 import com.stripe.android.paymentsheet.PaymentSheet
 import com.stripe.android.paymentsheet.PaymentSheetResult
 import dagger.hilt.android.lifecycle.HiltViewModel
-import dagger.hilt.android.qualifiers.ApplicationContext
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.firstOrNull
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import kotlinx.serialization.InternalSerializationApi
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.Date
+import java.util.Locale
 import javax.inject.Inject
 
 sealed class CheckoutState {
@@ -35,8 +38,7 @@ data class ProcessingStep(val text: String, val isComplete: Boolean, val isActiv
 @HiltViewModel
 class CheckoutViewModel @Inject constructor(
     private val cartRepository: CartRepositoryInterface,
-    val paymentRepository: PaymentRepositoryInterface,
-    @ApplicationContext private val context: Context
+    val paymentRepository: PaymentRepositoryInterface
 ) : ViewModel() {
 
     private val _checkoutState = MutableStateFlow<CheckoutState>(CheckoutState.Idle)
@@ -97,17 +99,17 @@ class CheckoutViewModel @Inject constructor(
                 viewModelScope.launch {
                     _checkoutState.value = CheckoutState.Processing
                     _processingSteps.value = listOf(
-                        ProcessingStep("Confirming payment", false, true),
-                        ProcessingStep("Processing order", false, false),
-                        ProcessingStep("Finalizing transaction", false, false)
+                        ProcessingStep("Confirming payment", isComplete = false, isActive = true),
+                        ProcessingStep("Processing order", isComplete = false, isActive = false),
+                        ProcessingStep("Finalizing transaction",
+                            isComplete = false,
+                            isActive = false
+                        )
                     )
 
                     updateStep(0, true)
-                    delay(1200)
                     updateStep(1, true)
-                    delay(1200)
                     updateStep(2, true)
-                    delay(800)
 
                     clearCart()
 

@@ -3,6 +3,7 @@ package com.example.feature.settings.impl
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.core.data.repository.CartRepository
+import com.example.core.domain.model.Result
 import com.example.core.domain.usecase.SignOutUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -10,8 +11,6 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
-import com.example.core.domain.model.Result
-import kotlinx.coroutines.delay
 
 @HiltViewModel
 class SettingsViewModel @Inject constructor(
@@ -29,7 +28,6 @@ class SettingsViewModel @Inject constructor(
                 is Result.Success -> {
                     _signOutState.value = SignOutState.Success
                     cartRepository.clearCart()
-                    delay(100)
                 }
                 is Result.Error -> _signOutState.value = SignOutState.Error(result.exception?.message)
                 else -> _signOutState.value = SignOutState.Idle
