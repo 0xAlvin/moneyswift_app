@@ -48,7 +48,6 @@ import com.example.feature.common.BottomNavItem
 import com.example.moneyswift.di.EntryProviderInstaller
 import com.example.ui.theme.MoneySwiftTheme
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.delay
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -88,7 +87,6 @@ fun BottomNavigator(
     val cartTabIndex = BottomNavItem.items.indexOfFirst { it.title == "Cart" } + 1
 
     LaunchedEffect(navigator.currentDestination) {
-        delay(100)
         navigator.onNavigationComplete()
     }
 
