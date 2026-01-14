@@ -67,9 +67,11 @@ fun LoginScreen(
     var password by remember { mutableStateOf("") }
     var passwordVisible by remember { mutableStateOf(false) }
 
-    LaunchedEffect(uiState.loginSuccessful) {
-        if (uiState.loginSuccessful) {
-            onSuccess()
+    if (uiState.loginSuccessful) {
+        LaunchedEffect(Unit) {
+            if (uiState.user != null) {
+                onSuccess()
+            }
         }
     }
 
