@@ -78,7 +78,7 @@ dependencies {
 
     implementation("androidx.recyclerview:recyclerview:1.4.0")
     implementation("androidx.compose.ui:ui-viewbinding:1.10.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+    implementation("androidx.constraintlayout:constraintlayout:2.2.1")
     implementation("androidx.cardview:cardview:1.0.0")
     implementation("com.google.android.material:material:1.13.0")
 

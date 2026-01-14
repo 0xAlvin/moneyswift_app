@@ -67,6 +67,7 @@ object Dependencies {
         const val bom = "com.google.firebase:firebase-bom:${Versions.firebaseBom}"
         const val auth = "com.google.firebase:firebase-auth"
         const val database = "com.google.firebase:firebase-database"
+        const val fcm = "com.google.firebase:firebase-messaging"
     }
 
     object Coroutines {

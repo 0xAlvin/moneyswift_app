@@ -2,6 +2,7 @@ plugins {
     id(Dependencies.Plugins.androidLibrary)
     id(Dependencies.Plugins.kotlinAndroid)
     id(Dependencies.Plugins.ksp)
+    id(Dependencies.Plugins.hilt)
 }
 
 android {
@@ -39,6 +40,9 @@ dependencies {
 
     implementation(platform(Dependencies.Firebase.bom))
     implementation(Dependencies.Firebase.auth)
+    implementation(Dependencies.Firebase.fcm)
+
+    implementation(Dependencies.Compose.materialIconsExtended)
 
     implementation(Dependencies.Coroutines.core)
     implementation(Dependencies.Coroutines.android)
